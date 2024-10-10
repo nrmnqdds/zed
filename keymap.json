@@ -26,10 +26,11 @@
       "space l r": "editor::Rename",
       "space p f": "file_finder::Toggle",
       "ctrl-e": "tab_switcher::Toggle",
-      //
-
+      "tab": "workspace::ActivateNextPane",
+      "ctrl-k": "pane::ActivateNextItem",
+      "ctrl-j": "pane::ActivatePrevItem",
+      "space q": "pane::CloseActiveItem",
       "space e": "workspace::ToggleRightDock",
-      // "ctrl-l": "pane::DeploySearch",
       "] d": "editor::GoToDiagnostic",
       "[ d": "editor::GoToPrevDiagnostic"
     }
