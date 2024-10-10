@@ -1,0 +1,52 @@
+[
+  {
+    // Normal and visual mode
+    "context": "VimControl && !menu",
+    "bindings": {
+      "shift-l": "vim::EndOfLine",
+      "shift-h": "vim::StartOfLine",
+      "shift-k": "editor::MoveLineUp",
+      "shift-j": "editor::MoveLineDown",
+      // Scroll and center
+      "ctrl-shift-d": "vim::ScrollDown",
+      "ctrl-d": ["workspace::SendKeystrokes", "ctrl-shift-d z z"],
+      "ctrl-shift-u": "vim::ScrollUp",
+      "ctrl-u": ["workspace::SendKeystrokes", "ctrl-shift-u z z"],
+      "ctrl-a": "editor::SelectAll"
+    }
+  },
+  {
+    // Normal mode only
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      "shift-k": "editor::Hover",
+      "space l a": "editor::ToggleCodeActions",
+      "space f": "editor::Format",
+      "space w": "workspace::Save",
+      "space l r": "editor::Rename",
+      "space p f": "file_finder::Toggle",
+      "ctrl-e": "tab_switcher::Toggle",
+      //
+
+      "space e": "workspace::ToggleRightDock",
+      // "ctrl-l": "pane::DeploySearch",
+      "] d": "editor::GoToDiagnostic",
+      "[ d": "editor::GoToPrevDiagnostic"
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "ctrl-y": "editor::AcceptInlineCompletion"
+      // "j k": "vim::NormalBefore" // In insert mode, make jk escape to normal mode.
+    }
+  },
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      // Put key bindings here (in addition to the context above) if you want them to
+      // work when no editor exists.
+      // "space f": "file_finder::Toggle"
+    }
+  }
+]
