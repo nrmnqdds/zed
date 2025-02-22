@@ -9,10 +9,21 @@
       "shift-j": "editor::MoveLineDown",
       // Scroll and center
       "ctrl-shift-d": "vim::ScrollDown",
-      "ctrl-d": ["workspace::SendKeystrokes", "ctrl-shift-d z z"],
+      "ctrl-d": [
+        "workspace::SendKeystrokes",
+        "ctrl-shift-d z z"
+      ],
       "ctrl-shift-u": "vim::ScrollUp",
-      "ctrl-u": ["workspace::SendKeystrokes", "ctrl-shift-u z z"],
-      "ctrl-a": "editor::SelectAll"
+      "ctrl-u": [
+        "workspace::SendKeystrokes",
+        "ctrl-shift-u z z"
+      ],
+      "ctrl-a": "editor::SelectAll",
+      // surround
+      "shift-s": [
+        "vim::PushAddSurrounds",
+        {}
+      ]
     }
   },
   {
@@ -21,6 +32,7 @@
     "bindings": {
       "shift-k": "editor::Hover",
       "space l a": "editor::ToggleCodeActions",
+      "space l d": "diagnostics::ToggleWarnings",
       "space f": "editor::Format",
       "space w": "workspace::Save",
       "space l r": "editor::Rename",
@@ -30,24 +42,61 @@
       "ctrl-k": "pane::ActivateNextItem",
       "ctrl-j": "pane::ActivatePrevItem",
       "space q": "pane::CloseActiveItem",
+      // Close project panel as project file panel on the right
+      "q": "workspace::ToggleRightDock",
       "space e": "workspace::ToggleRightDock",
+      // "space x": "workspace::CloseAllDocks",
       "] d": "editor::GoToDiagnostic",
-      "[ d": "editor::GoToPrevDiagnostic"
+      "[ d": "editor::GoToPrevDiagnostic",
+      "g r": "editor::FindAllReferences"
     }
   },
   {
+    // insert mode
     "context": "vim_mode == insert",
     "bindings": {
-      "ctrl-y": "editor::AcceptInlineCompletion"
-      // "j k": "vim::NormalBefore" // In insert mode, make jk escape to normal mode.
+      "ctrl-l": "vim::Right",
+      "ctrl-h": "vim::Left",
+      "tab": "editor::AcceptEditPrediction"
     }
   },
   {
-    "context": "EmptyPane || SharedScreen",
+    "context": "ProjectPanel && not_editing",
     "bindings": {
-      // Put key bindings here (in addition to the context above) if you want them to
-      // work when no editor exists.
-      // "space f": "file_finder::Toggle"
+      // https://github.com/zed-industries/zed/issues/4753
+      // https://github.com/zed-industries/zed/issues/4270
+      "escape": "project_panel::ToggleFocus",
+      "enter": "project_panel::Open",
+      "o": "project_panel::NewDirectory",
+      "a": "project_panel::NewFile",
+      "r": "project_panel::Rename",
+      "x": "project_panel::Cut",
+      "y": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "d": "project_panel::Delete",
+      // Directory expansion
+      "l": "project_panel::ExpandSelectedEntry",
+      "h": "project_panel::CollapseSelectedEntry",
+      // Move up and down
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrev",
+      // "shift-d": "project_panel::Delete"
+      // Close project panel as project file panel on the right
+      "q": "workspace::ToggleRightDock",
+      "space e": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-shift-j": "pane::SwapItemLeft",
+      "ctrl-shift-k": "pane::SwapItemRight"
+    }
+  },
+  {
+    "context": "Editor && showing_completions",
+    "bindings": {
+      "ctrl-y": "editor::ConfirmCompletion"
     }
   }
 ]
