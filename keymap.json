@@ -9,21 +9,13 @@
       "shift-j": "editor::MoveLineDown",
       // Scroll and center
       "ctrl-shift-d": "vim::ScrollDown",
-      "ctrl-d": [
-        "workspace::SendKeystrokes",
-        "ctrl-shift-d z z"
-      ],
+      "ctrl-d": ["workspace::SendKeystrokes", "ctrl-shift-d z z"],
       "ctrl-shift-u": "vim::ScrollUp",
-      "ctrl-u": [
-        "workspace::SendKeystrokes",
-        "ctrl-shift-u z z"
-      ],
+      "ctrl-u": ["workspace::SendKeystrokes", "ctrl-shift-u z z"],
       "ctrl-a": "editor::SelectAll",
+
       // surround
-      "shift-s": [
-        "vim::PushAddSurrounds",
-        {}
-      ]
+      "shift-s": ["vim::PushAddSurrounds", {}]
     }
   },
   {
@@ -56,11 +48,18 @@
     "context": "vim_mode == insert",
     "bindings": {
       "ctrl-l": "vim::Right",
-      "ctrl-h": "vim::Left",
+      "ctrl-h": "vim::Left"
+    }
+  },
+  {
+    // edit prediction mode
+    "context": "Editor && edit_prediction",
+    "bindings": {
       "tab": "editor::AcceptEditPrediction"
     }
   },
   {
+    // project panel mode
     "context": "ProjectPanel && not_editing",
     "bindings": {
       // https://github.com/zed-industries/zed/issues/4753
@@ -94,9 +93,11 @@
     }
   },
   {
-    "context": "Editor && showing_completions",
+    "context": "Editor && (showing_code_actions || showing_completions)",
     "bindings": {
-      "ctrl-y": "editor::ConfirmCompletion"
+      "ctrl-y": "editor::ConfirmCompletion",
+      "ctrl-k": "editor::ContextMenuPrev",
+      "ctrl-j": "editor::ContextMenuNext"
     }
   }
 ]
