@@ -15,7 +15,10 @@
       "ctrl-a": "editor::SelectAll",
 
       // surround
-      "shift-s": ["vim::PushAddSurrounds", {}]
+      "shift-s": ["vim::PushAddSurrounds", {}],
+      "p": ["vim::Paste", { "preserve_clipboard": false }],
+      "space p": ["vim::Paste", { "preserve_clipboard": true }],
+      "shift-p": ["vim::Paste", { "preserve_clipboard": true }]
     }
   },
   {
@@ -23,24 +26,24 @@
     "context": "vim_mode == normal && !menu",
     "bindings": {
       "shift-k": "editor::Hover",
+      "g w": "editor::GoToDefinitionSplit",
       "space l a": "editor::ToggleCodeActions",
       "space l d": "diagnostics::ToggleWarnings",
       "space f": "editor::Format",
       "space w": "workspace::Save",
       "space l r": "editor::Rename",
       "space p f": "file_finder::Toggle",
-      "ctrl-e": "tab_switcher::Toggle",
       "tab": "workspace::ActivateNextPane",
       "ctrl-k": "pane::ActivateNextItem",
-      "ctrl-j": "pane::ActivatePrevItem",
-      "space q": "pane::CloseActiveItem",
+      "ctrl-j": "pane::ActivatePreviousItem",
+      "space d d": "pane::CloseActiveItem",
       // Close project panel as project file panel on the right
       "q": "workspace::ToggleRightDock",
-      "space e": "workspace::ToggleRightDock",
+      // "space e": "workspace::ToggleRightDock",
+      "space e": "pane::RevealInProjectPanel",
       // "space x": "workspace::CloseAllDocks",
-      "] d": "editor::GoToDiagnostic",
-      "[ d": "editor::GoToPrevDiagnostic",
-      "g r": "editor::FindAllReferences"
+      "g r": "editor::FindAllReferences",
+      "space q": "workspace::CloseWindow"
     }
   },
   {
@@ -78,7 +81,7 @@
       "h": "project_panel::CollapseSelectedEntry",
       // Move up and down
       "j": "menu::SelectNext",
-      "k": "menu::SelectPrev",
+      "k": "menu::SelectPrevious",
       // "shift-d": "project_panel::Delete"
       // Close project panel as project file panel on the right
       "q": "workspace::ToggleRightDock",
@@ -96,7 +99,7 @@
     "context": "Editor && (showing_code_actions || showing_completions)",
     "bindings": {
       "ctrl-y": "editor::ConfirmCompletion",
-      "ctrl-k": "editor::ContextMenuPrev",
+      "ctrl-k": "editor::ContextMenuPrevious",
       "ctrl-j": "editor::ContextMenuNext"
     }
   }

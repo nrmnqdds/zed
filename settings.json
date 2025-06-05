@@ -7,81 +7,120 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-    // "assistant": {
-    //   // "default_open_ai_model": "o1-mini",
-    //   "default_model": {
-    //     "provider": "ollama",
-    //     "model": "deepseek-r1:7b"
-    //   },
-    //   "version": "2",
-    //   "provider": {
-    //     "name": "openai",
-    //     "type": "openai",
-    //     "default_model": "deepseek-r1:7b",
-    //     "api_url": "http://localhost:11434/v1"
-    //   }
-    // },
-    "features": {
-        "edit_prediction_provider": "zed"
+  "icon_theme": "Material Icon Theme",
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  // https://github.com/zed-industries/zed/pull/7338
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false
+  },
+  "scrollbar": {
+    "show": "never"
+  },
+  "vertical_scroll_margin": 0,
+  "agent": {
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-latest"
     },
-    "icon_theme": "Material Icon Theme",
-    "assistant": {
-        "default_model": {
-            "provider": "anthropic",
-            "model": "claude-3-5-sonnet-latest"
-        },
-        "version": "2"
-    },
-    "project_panel": {
-        // Default width of the project panel.
-        "default_width": 240,
-        // Where to dock project panel. Can be 'left' or 'right'.
-        "dock": "right",
-        // Whether to show file icons in the project panel.
-        "file_icons": true,
-        // Whether to show folder icons or chevrons for directories in the project panel.
-        "folder_icons": true,
-        // Whether to show the git status in the project panel.
-        "git_status": true,
-        // Amount of indentation for nested items.
-        "indent_size": 20,
-        // Whether to reveal it in the project panel automatically,
-        // when a corresponding project entry becomes active.
-        // Gitignored entries are never auto revealed.
-        "auto_reveal_entries": true
-    },
-    "terminal": {
-        "dock": "bottom"
-    },
-    "ui_font_size": 14,
-    "buffer_font_size": 12.0,
-    "theme": {
-        "mode": "dark",
-        "light": "One Light",
-        "dark": "Github Dark"
-    },
-    // "inlay_hints": {
-    //   // Global switch to toggle hints on and off, switched off by default.
-    //   "enabled": true,
-    //   // Toggle certain types of hints on and off, all switched on by default.
-    //   "show_type_hints": true,
-    //   "show_parameter_hints": true,
-    //   // Corresponds to null/None LSP hint type value.
-    //   "show_other_hints": true
-    // },
-    "tab_size": 2,
-    "use_tab_character": false,
-    "vim_mode": true,
-    // "buffer_font_family": "FiraCode Nerd Font",
-    "buffer_font_family": "MesloLGS Nerd Font",
-    "base_keymap": "VSCode",
-    "relative_line_numbers": true,
-    "cursor_shape": "block",
-    "experimental.theme_overrides": {
-        "players": [
-            {
-                "cursor": "#ffffff"
-            }
-        ]
+    "version": "2"
+  },
+  "project_panel": {
+    // Where to dock project panel. Can be 'left' or 'right'.
+    "dock": "right"
+  },
+  "terminal": {
+    "dock": "bottom"
+  },
+  "ui_font_size": 14,
+  "buffer_font_size": 12.0,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Quddus Night"
+  },
+  "diagnostics": {
+    "include_warnings": true,
+    "inline": {
+      "enabled": true,
+      "update_debounce_ms": 150,
+      "padding": 4,
+      "min_column": 0,
+      "max_severity": null
     }
+  },
+  // "inlay_hints": {
+  //   // Global switch to toggle hints on and off, switched off by default.
+  //   "enabled": true,
+  //   // Toggle certain types of hints on and off, all switched on by default.
+  //   "show_type_hints": true,
+  //   "show_parameter_hints": true,
+  //   // Corresponds to null/None LSP hint type value.
+  //   "show_other_hints": true
+  // },
+  "tab_size": 2,
+  "use_tab_character": false,
+  "vim_mode": true,
+  // "buffer_font_family": "FiraCode Nerd Font",
+  "buffer_font_family": "MesloLGS Nerd Font",
+
+  "base_keymap": "VSCode",
+  "relative_line_numbers": true,
+  "cursor_shape": "bar",
+  "cursor_blink": false,
+  "vim": {
+    "highlight_on_yank_duration": 200
+  },
+  "experimental.theme_overrides": {
+    "players": [
+      {
+        "cursor": "#ffffff"
+      }
+    ],
+    // Disables weird highlight
+    "editor.document_highlight.read_background": "#00000000",
+    "editor.document_highlight.write_background": "#00000000"
+  },
+  "languages": {
+    "TypeScript": {
+      "language_servers": [
+        "vtsls",
+        "!typescript-language-server",
+        "eslint",
+        "!biome",
+        "..."
+      ],
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": {
+        "external": {
+          "command": "prettierd",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+    "TSX": {
+      "language_servers": [
+        "vtsls",
+        "!typescript-language-server",
+        "eslint",
+        "!biome",
+        "..."
+      ],
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": {
+        "external": {
+          "command": "prettierd",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    }
+  },
+  "unnecessary_code_fade": 0.6
 }
