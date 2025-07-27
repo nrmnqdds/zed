@@ -15,10 +15,10 @@
       "ctrl-a": "editor::SelectAll",
 
       // surround
-      "shift-s": ["vim::PushAddSurrounds", {}],
-      "p": ["vim::Paste", { "preserve_clipboard": false }],
-      "space p": ["vim::Paste", { "preserve_clipboard": true }],
-      "shift-p": ["vim::Paste", { "preserve_clipboard": true }]
+      "shift-s": ["vim::PushAddSurrounds", {}]
+      // "p": ["vim::Paste", { "preserve_clipboard": false }],
+      // "space p": ["vim::Paste", { "preserve_clipboard": true }],
+      // "shift-p": ["vim::Paste", { "preserve_clipboard": true }]
     }
   },
   {
@@ -37,6 +37,7 @@
       "ctrl-k": "pane::ActivateNextItem",
       "ctrl-j": "pane::ActivatePreviousItem",
       "space d d": "pane::CloseActiveItem",
+      "space d a": "pane::CloseInactiveItems",
       // Close project panel as project file panel on the right
       "q": "workspace::ToggleRightDock",
       // "space e": "workspace::ToggleRightDock",

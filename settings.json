@@ -21,12 +21,12 @@
   },
   "vertical_scroll_margin": 0,
   "agent": {
+    "always_allow_tool_actions": true,
     "default_profile": "ask",
     "default_model": {
       "provider": "anthropic",
       "model": "claude-sonnet-4-latest"
-    },
-    "version": "2"
+    }
   },
   "project_panel": {
     // Where to dock project panel. Can be 'left' or 'right'.
@@ -62,7 +62,7 @@
   //   "show_other_hints": true
   // },
   "tab_size": 2,
-  "use_tab_character": false,
+  // "use_tab_character": false,
   "vim_mode": true,
   // "buffer_font_family": "FiraCode Nerd Font",
   "buffer_font_family": "MesloLGS Nerd Font",
@@ -79,10 +79,11 @@
       {
         "cursor": "#ffffff"
       }
-    ],
+    ]
     // Disables weird highlight
-    "editor.document_highlight.read_background": "#00000000",
-    "editor.document_highlight.write_background": "#00000000"
+    // "editor.document_highlight.read_background": "#FFFF0080"
+    // "editor.document_highlight.read_background": "#00000000",
+    // "editor.document_highlight.write_background": "#00000000"
   },
   "languages": {
     "TypeScript": {
@@ -122,5 +123,7 @@
       }
     }
   },
-  "unnecessary_code_fade": 0.6
+  "unnecessary_code_fade": 0.6,
+  "lsp_document_colors": "inlay",
+  "lsp_highlight_debounce": 9999999999 // disable weird highlight
 }
